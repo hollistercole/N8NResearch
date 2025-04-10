@@ -12,6 +12,6 @@ Each project contains in-depth analysis and information.
 
 {% for project in site.pages %}
   {% if project.path contains 'projects/' and project.name == 'index.md' %}
-  * [Project {{ project.dir | split: '/' | last }}]({{ project.url | relative_url }})
+  * [Project {{ project.dir | split: '/' | last }}]({{ site.baseurl }}{{ project.url }})
   {% endif %}
 {% endfor %}
