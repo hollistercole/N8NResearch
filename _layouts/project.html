@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<div class="project-page">
+  <h1>{{ page.title }}</h1>
+  
+  {{ content }}
+  
+  <h2>Articles in this Research</h2>
+  <ul class="article-list">
+    {% assign project_path = page.path | remove: "index.md" %}
+    {% for article in site.pages %}
+      {% if article.path contains project_path and article.path != page.path %}
+        <li><a href="{{ article.url | relative_url }}">{{ article.title }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  
+  <div class="back-link">
+    <a href="{{ "/" | relative_url }}">Back to all research projects</a>
+  </div>
+</div>
