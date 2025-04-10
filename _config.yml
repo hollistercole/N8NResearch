@@ -1,0 +1,34 @@
+title: "Research Assistant Bot"
+description: "AI-driven research on various topics"
+baseurl: ""
+url: "https://hollistercole.github.io"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Collections for organizing content
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:path/
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: "projects"
+      type: "pages"
+    values:
+      layout: "article"
+  - scope:
+      path: "projects/*/index.md"
+    values:
+      layout: "project"
