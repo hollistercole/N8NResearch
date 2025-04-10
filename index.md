@@ -10,8 +10,7 @@ Each project contains in-depth analysis and information.
 
 ## Current Projects
 
-{% for project in site.pages %}
-  {% if project.path contains 'projects/' and project.name == 'index.md' %}
-  * [Project {{ project.dir | split: '/' | last }}]({{ site.baseurl }}{{ project.url }})
-  {% endif %}
+{% assign sorted_pages = site.pages | where_exp: "page", "page.path contains 'projects/' and page.name == 'index.md'" | sort: "date" | reverse %}
+{% for project in sorted_pages %}
+  * [Project {{ project.dir | split: '/' | last }}]({{ site.baseurl }}{{ project.url }}) - Created: {{ project.date | date: "%B %d, %Y" }}
 {% endfor %}
