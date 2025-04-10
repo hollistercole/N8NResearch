@@ -1,0 +1,13 @@
+<header>
+  <div class="container">
+    <h1><a href="{{ "/" | relative_url }}">{{ site.title }}</a></h1>
+    <nav>
+      <a href="{{ "/" | relative_url }}">Home</a>
+      {% for project in site.pages %}
+        {% if project.path contains 'projects/' and project.path contains '/index.md' %}
+          <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+        {% endif %}
+      {% endfor %}
+    </nav>
+  </div>
+</header>
